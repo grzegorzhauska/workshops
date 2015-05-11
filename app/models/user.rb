@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  validates :lastname, presence: true, allow_blank: false
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,4 +13,7 @@ class User < ActiveRecord::Base
   def admin?
     admin
   end
+
+
+
 end
