@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150511115347) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.float    "price"
+    t.float    "price",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
