@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
     unless product.user.present? && product.user == current_user
       redirect_to category_product_url(category, product), flash: { error: 'You are not allowed to edit this product.' }
     end
@@ -35,7 +34,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if self.product.update(product_params)
+    if product.user.present? && (product.user == current_user) && self.product.update(product_params)
       redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
     else
       #mistake in test ln:205?
