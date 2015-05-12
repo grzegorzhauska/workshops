@@ -34,11 +34,14 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if product.user.present? && (product.user == current_user) && self.product.update(product_params)
-      redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
+    unless product.user.present? && (product.user == current_user)
+      redirect_to category_product_url(category, product), flash: { error: 'You are not allowed to edit this product.' }
     else
-      #mistake in test ln:205?
-      redirect_to category_product_url(category, product), error: 'You are not allowed to edit this product.'
+      if self.product.update(product_params)
+        redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
+      else
+        redirect_to category_product_url(category, product), error: 'You are not allowed to edit this product.'
+      end
     end
   end
 

@@ -71,7 +71,7 @@ describe ProductsController do
           expect(controller.product.title).to_not eq 'MyNewString'
         end
 
-        it 'renders error message' do
+        it 'renders error message', dupa: true do
           put :update, { id: product.to_param, product: { 'title' => 'MyString' }, category_id: category.to_param }
           expect(controller.flash[:error]).to eq 'You are not allowed to edit this product.'
         end
