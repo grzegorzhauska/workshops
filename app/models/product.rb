@@ -5,13 +5,9 @@ class Product < ActiveRecord::Base
   validates :price, presence: true, :format => { :with => /\A\d{1,4}(\.\d{0,2})?\z/ }
 
   def average_rating
-    result = 0
-    reviews.each {
-      | r | result += r.rating
-    }
-    result / reviews.length
 
-    binding.pry
+    reviews.average(:rating)
+
   end
 
   belongs_to :category
