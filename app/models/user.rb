@@ -15,6 +15,4 @@ class User < ActiveRecord::Base
     admin
   end
 
-
-
 end

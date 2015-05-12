@@ -198,6 +198,7 @@ describe ProductsController do
           expect(controller.product).to eq(product)
         end
 
+        #mistake in test?
         it "re-renders the 'edit' template" do
           Product.any_instance.stub(:save).and_return(false)
           put :update, { id: product.to_param, product: { 'title' => 'invalid value' }, category_id: category.to_param }

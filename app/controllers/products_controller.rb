@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+
   expose(:category)
   expose(:products)
   expose(:product)
@@ -15,6 +17,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    unless product.user == current_user
+      redirect_to category_product_url(category, product), alert: 'You are not product owner'
+    end
   end
 
   def create
@@ -29,6 +34,8 @@ class ProductsController < ApplicationController
   end
 
   def update
+
+    #(self.product.user == current_user) &&
     if self.product.update(product_params)
       redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
     else
