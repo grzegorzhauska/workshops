@@ -23,8 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    self.product = Product.new(product_params)
-
+    self.product = Product.new(product_params.merge({ user_id: current_user.id }))
     if product.save
       category.products << product
       redirect_to category_product_url(category, product), notice: 'Product was successfully created.'
