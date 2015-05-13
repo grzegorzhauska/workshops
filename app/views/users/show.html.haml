@@ -4,8 +4,15 @@
 %p
   %b user name:
   = @user.decorate.name
+%p
+  email:
+  = @user.email
+%p
+  number of products:
+  = product_count
 
 - get_last_reviews.each do |r|
-  %a{:href => "#"}
+  %p
     = r.content
+    = r.rating
     = r.created_at.strftime("%m-%d-%y")

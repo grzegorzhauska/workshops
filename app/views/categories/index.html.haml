@@ -12,11 +12,11 @@
       %td= category.name
       %td= link_to 'Show', category
       %td
-      - if current_user.present? && current_user.admin?
-        link_to 'Edit', edit_category_path(category)
+        - if current_user.present? && current_user.admin?
+          = link_to 'Edit', edit_category_path(category)
       %td
-      - if current_user.present? && current_user.admin?
-        link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+        - if current_user.present? && current_user.admin?
+          = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
