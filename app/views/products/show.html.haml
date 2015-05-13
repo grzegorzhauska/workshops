@@ -15,6 +15,10 @@
   %b Category
   = product.category.name
 
+%p
+  %b Owner
+  = link_to product.user.decorate.name, user_path(product.user)
+
 %h3 Reviews
 = render 'reviews/form'
 
