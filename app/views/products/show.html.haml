@@ -19,13 +19,18 @@
   %b Owner
   = link_to product.user.decorate.name, user_path(product.user)
 
+%h3 Reviews
+%ul.products
+  - reviews.each do |review|
+    %li= "Rating: #{review.rating}, Author: #{review.user.decorate.name}, Review: #{review.content}"
 - if current_user.present?
-  %h3 Reviews
+
+  %h4 New Review
   = render 'reviews/form'
 
-= render reviews
+
 
 - if current_user == product.user
   = link_to 'Edit', edit_category_product_path(category.id, product.id)
   \|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+= link_to 'Back', category_path(category), class: 'btn btn-primary'
