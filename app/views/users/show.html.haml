@@ -3,14 +3,9 @@
 
 %p
   %b user name:
-  = [@user.firstname, @user.lastname].join ' '
-%p
-  %b Description:
-  = ''
-%p
-  %b Price:
-  = ''
+  = @user.decorate.name
 
-%p
-  %b Category
-  = ''
+- get_last_reviews.each do |r|
+  %a{:href => "#"}
+    = r.content
+    = r.created_at.strftime("%m-%d-%y")
