@@ -6,21 +6,39 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-5.times do |i|
-  User.create!({ firstname: "Chicago#{i}", lastname: "Kowalski#{i}", email: "kowalski#{i}@gmail.com", password: "kowalski#{i}"  })
-end
-admin = User.last
+
+User.create!({ firstname: "Kasia", lastname: "Kowalska", email: "kasia.kowalska@gmail.com", password: "12345678"  })
+User.create!({ firstname: "Basia", lastname: "Kowalska", email: "basia.kowalska@gmail.com", password: "12345678"  })
+User.create!({ firstname: "Maura", lastname: "Hauska", email: "maura.hauska@gmail.com", password: "12345678"  })
+User.create!({ firstname: "Grzegorz", lastname: "Hauska", email: "grzegorz.hauska@gmail.com", password: "12345678"  })
+User.create!({ firstname: "Joanna", lastname: "Kopczyk", email: "joanna.kopczyk@gmail.com", password: "12345678"  })
+
+admin = User.find_by_firstname("Grzegorz")
 admin.admin = true
 admin.save
 
-category = Category.create!({name: 'kurtki'})
+user1, user2, user3 = User.limit(3)
 
-5.times do |i|
-  Product.create!({title: "kurtka", description: "bardzo ladna kurtka", price: i, category: category, user: admin})
-end
+kurtki = Category.create!({name: 'Kurtki'})
+spodnie = Category.create!({name: 'Spodnie'})
 
-product = Product.first
 
-5.times do |i|
-  Review.create!({content: "bardzo mi sie podoba", rating: 4, user: admin, product: product})
-end
+Product.create!({title: "EVALINE", description: "EVALINE - Żakiet - pastel pink", price: 44.99, category: kurtki, user: user1})
+Product.create!({title: "COLBYNORD", description: "COLBYNORD - Kurtka skórzana - black", price: 59.99, category: kurtki, user: user1})
+Product.create!({title: "FLORRIS", description: "FLORRIS - Kurtka przejściowa - black", price: 69.99, category: kurtki, user: user1})
+Product.create!({title: "ONLSTAR", description: "ONLSTAR - Kurtka wiosenna - micro chip", price: 44.99, category: kurtki, user: user1})
+Product.create!({title: "Kamizelka", description: "Kamizelka - black", price: 44.99, category: kurtki, user: user1})
+
+Product.create!({title: "ONLSTAR", description: "ONLSTAR - Kurtka wiosenna - micro chip", price: 44.99, category: spodnie, user: user2})
+Product.create!({title: "Kamizelka", description: "Kamizelka - black", price: 59.99, category: spodnie, user: user2})
+
+product1, product2 = Product.limit(2)
+
+Review.create!({content: "bardzo mi sie podoba", rating: 4, user: user1, product: product1})
+Review.create!({content: "juz po 1 miesiacu do naprawy", rating: 1, user: user2, product: product1})
+Review.create!({content: "polecam wszystkim!", rating: 5, user: user3, product: product1})
+
+Review.create!({content: "jest ok", rating: 3, user: user1, product: product2})
+Review.create!({content: "bardzo mi sie podoba", rating: 4, user: user2, product: product2})
+Review.create!({content: "nie polecam", rating: 2, user: user3, product: product2})
+
