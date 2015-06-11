@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create!({ firstname: "Kasia", lastname: "Kowalska", email: "kasia.kowalska@gmail.com", password: "12345678"  })
-User.create!({ firstname: "Basia", lastname: "Kowalska", email: "basia.kowalska@gmail.com", password: "12345678"  })
-User.create!({ firstname: "Maura", lastname: "Hauska", email: "maura.hauska@gmail.com", password: "12345678"  })
-User.create!({ firstname: "Grzegorz", lastname: "Hauska", email: "grzegorz.hauska@gmail.com", password: "12345678"  })
-User.create!({ firstname: "Joanna", lastname: "Kopczyk", email: "joanna.kopczyk@gmail.com", password: "12345678"  })
+User.create!({ first_name: "Kasia", last_name: "Kowalska", email: "kasia.kowalska@gmail.com", password: "12345678"  })
+User.create!({ first_name: "Basia", last_name: "Kowalska", email: "basia.kowalska@gmail.com", password: "12345678"  })
+User.create!({ first_name: "Maura", last_name: "Hauska", email: "maura.hauska@gmail.com", password: "12345678"  })
+User.create!({ first_name: "Grzegorz", last_name: "Hauska", email: "grzegorz.hauska@gmail.com", password: "12345678"  })
+User.create!({ first_name: "Joanna", last_name: "Kopczyk", email: "joanna.kopczyk@gmail.com", password: "12345678"  })
 
-admin = User.find_by_firstname("Grzegorz")
+admin = User.find_by_email("grzegorz.hauska@gmail.com")
 admin.admin = true
 admin.save
 

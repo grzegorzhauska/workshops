@@ -11,7 +11,7 @@ class UserDecorator < Draper::Decorator
   #   end
 
   def name
-    [firstname, lastname].join ' '
+    [first_name, last_name].join ' '
   end
 
 end
