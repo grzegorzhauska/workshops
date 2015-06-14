@@ -4,6 +4,8 @@
 %div{:class => 'title'}
   %h2
     = product.title
+    - if current_user == product.user
+      = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-default'
   %p= product.description
 
 %p
@@ -35,7 +37,4 @@
 
 
 
-- if current_user == product.user
-  = link_to 'Edit', edit_category_product_path(category.id, product.id)
-  \|
 = link_to 'Back', category_path(category), class: 'btn btn-primary'
