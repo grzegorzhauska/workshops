@@ -1,8 +1,9 @@
 %p#notice= notice
 
-%h1.category-name= category.name
-- if current_user.present? && current_user.admin?
-  = link_to 'Edit', edit_category_path(category), class: "edit-category"
+%h1.category-name
+  = category.name
+  - if current_user.present? && current_user.admin?
+    = link_to 'Edit', edit_category_path(category), class: "btn btn-default"
 
 
 %h3 Products
