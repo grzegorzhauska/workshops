@@ -23,12 +23,23 @@ nav {
   padding: 0;
 }
 
+.actions {
+  margin: 10px;
+}
+
 .categories-header {
   margin-bottom: 20px;
 }
 
 .table-category-name {
   padding-top: 13px !important;
+}
+
+.new-form {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .products {
@@ -52,4 +63,8 @@ nav {
   text-transform: uppercase;
   position: relative;
   top: -8px;
+}
+
+.footer {
+  margin-bottom: 50px;
 }

@@ -1,5 +1,9 @@
 %h1.categories-header Listing categories
 
+%div{ :class => 'actions'}
+  - if current_user.present? && current_user.admin?
+    = link_to 'New Category', new_category_path
+
 %table.table.categories
   %tr
     %th Name
@@ -18,9 +22,6 @@
         - if current_user.present? && current_user.admin?
           = link_to 'Destroy', category, method: :delete, class: "btn btn-warning", data: { confirm: 'Are you sure?' }
 
-%br
 
-- if current_user.present? && current_user.admin?
-  = link_to 'New Category', new_category_path
 
 
