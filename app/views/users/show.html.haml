@@ -1,18 +1,21 @@
 %p#notice= notice
 %p#error= flash[:error]
 
-%p
-  %b user name:
-  = @user.decorate.name
-%p
-  email:
-  = @user.email
-%p
-  number of products:
-  = product_count
+%div{:class => 'profile'}
+  %h2
+    = @user.decorate.name
+  %p= @user.email
 
-- get_last_reviews.each do |r|
-  %p
-    = r.content
-    = r.rating
-    = r.created_at.strftime("%m-%d-%y")
+%h3 Last Reviews
+%ul.products
+  - get_last_reviews.each do |review|
+    %li
+      - review.rating.times do |i|
+        %b= fa_icon "star" 
+      %p= review.content
+      %p= review.created_at.strftime("%m-%d-%y")
+      %p= link_to review.user.decorate.name, user_path(review.user)
+
+%p
+  Number of products:
+  = product_count
