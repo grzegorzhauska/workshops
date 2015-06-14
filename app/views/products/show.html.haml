@@ -22,7 +22,8 @@
 %ul.products
   - reviews.each do |review|
     %li
-      %b= review.rating 
+      - review.rating.times do |i|
+        %b= fa_icon "star" 
       %p= review.content
       %p= link_to review.user.decorate.name, user_path(review.user)
 - if current_user.present?
