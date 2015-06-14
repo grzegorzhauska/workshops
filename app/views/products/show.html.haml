@@ -1,12 +1,11 @@
 %p#notice= notice
 %p#error= flash[:error]
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
+%div{:class => 'title'}
+  %h2
+    = product.title
+  %p= product.description
+
 %p
   %b Price:
   = product.price
@@ -22,11 +21,15 @@
 %h3 Reviews
 %ul.products
   - reviews.each do |review|
-    %li= "Rating: #{review.rating}, Author: #{review.user.decorate.name}, Review: #{review.content}"
+    %li
+      %b= review.rating 
+      %p= review.content
+      %p= link_to review.user.decorate.name, user_path(review.user)
 - if current_user.present?
 
-  %h4 New Review
-  = render 'reviews/form'
+  %div{ :class => 'new-form'}
+    %h4 New Review
+    = render 'reviews/form'
 
 
 
