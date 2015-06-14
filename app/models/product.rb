@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
 
   def average_rating
     ratings = reviews.map(&:rating)
-    ratings.inject(:+) / ratings.length
+    ratings.inject(:+) / ratings.length.to_f
   end
 
   belongs_to :category
