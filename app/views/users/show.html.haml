@@ -8,7 +8,7 @@
 
 %h3 Last Reviews
 %ul.products
-  - get_last_reviews.each do |review|
+  - get_last_reviews(@user).each do |review|
     %li
       %blockquote
         - review.rating.times do |i|
