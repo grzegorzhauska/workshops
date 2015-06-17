@@ -23,12 +23,13 @@
 %h3 Reviews
 %ul.products
   - reviews.each do |review|
-    %li
-      - review.rating.times do |i|
-        %b= fa_icon "star" 
-      %p= review.content
-      %p= review.created_at.strftime("%m-%d-%y")
-      %p= link_to review.user.decorate.name, user_path(review.user)
+    %li<
+      %blockquote
+        - review.rating.times do |i|
+          %b= fa_icon "star" 
+        %p= review.content
+        %p= review.created_at.strftime("%m-%d-%y")
+        %p= link_to review.user.decorate.name, user_path(review.user)
 - if current_user.present?
 
   %div{ :class => 'new-form'}

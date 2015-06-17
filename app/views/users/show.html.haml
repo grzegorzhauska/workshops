@@ -10,11 +10,12 @@
 %ul.products
   - get_last_reviews.each do |review|
     %li
-      - review.rating.times do |i|
-        %b= fa_icon "star" 
-      %p= review.content
-      %p= review.created_at.strftime("%m-%d-%y")
-      %p= link_to review.user.decorate.name, user_path(review.user)
+      %blockquote
+        - review.rating.times do |i|
+          %b= fa_icon "star" 
+        %p= review.content
+        %p= review.created_at.strftime("%m-%d-%y")
+        %p= link_to review.user.decorate.name, user_path(review.user)
 
 %p
   Number of products:
