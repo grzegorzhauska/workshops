@@ -33,7 +33,11 @@
 - if current_user.present?
 
   %div{ :class => 'new-form'}
-    %h4 New Review
+    %h4 
+      New Review 
+      <button type="button" class="btn btn-default show_review_form">
+      = fa_icon 'plus'
+      </button> 
     = render 'reviews/form'
 
 
