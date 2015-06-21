@@ -1,3 +1,16 @@
+$color1: #313628; //rgba(49, 54, 40, 100)
+$color2: #595358; //rgba(89, 83, 88, 100)
+$color3: #777da7; //rgba(119, 125, 167, 100)
+$color4: #94c9a9; //rgba(148, 201, 169, 100)
+$color5: #857f74; //rgba(133, 127, 116, 100)
+
+
+$body-bg:               $color3;
+$navbar-default-bg:             $color2;
+$brand-primary:         $color1;
+$btn-default-bg:                 $color4;
+$input-bg:                       $color5;
+
 @import "bootstrap";
 @import "font-awesome";
 
