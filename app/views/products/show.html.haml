@@ -35,12 +35,8 @@
   %div{ :class => 'new-form'}
     %h4 
       New Review 
-      <button type="button" class="btn btn-default show_review_form">
-      = fa_icon 'plus'
-      </button>
-      <button type="button" class="btn btn-default hide_review_form">
-      = fa_icon 'minus'
-      </button> 
+      %button.btn.btn-default.show_review_form{ type: 'button' }= fa_icon 'plus'
+      %button.btn.btn-default.hide_review_form{ type: 'button' }= fa_icon 'minus'
     = render 'reviews/form'
 
 
