@@ -12,15 +12,11 @@
 
 %table.table.categories
   %tr
-    %th Name
-    %th
-    %th
-    %th
-
   - categories.each do |category|
     %tr
-      %td.table-category-name= category.name
-      %td= link_to 'Show', category, class: "btn btn-info"
+      %td.table-category-name
+        %h4
+          = link_to category.name, category
       %td
         - if current_user.present? && current_user.admin?
           = link_to 'Edit', edit_category_path(category), class: "btn btn-info"

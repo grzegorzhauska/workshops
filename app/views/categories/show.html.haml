@@ -9,7 +9,9 @@
 %h3 Products
 %ul.products
   - category.products.each do |product|
-    %li.product= link_to product.title, category_product_path(category, product)
+    %li.product
+      %strong
+        = link_to product.title, category_product_path(category, product)
 
 - if current_user.present?
   %div{ :class => 'new-form'}
