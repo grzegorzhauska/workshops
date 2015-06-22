@@ -11,7 +11,6 @@
     = link_to 'New Category', new_category_path, class: "btn btn-default"
 
 %table.table.categories
-  %tr
   - categories.each do |category|
     %tr
       %td.table-category-name
@@ -23,6 +22,8 @@
       %td
         - if current_user.present? && current_user.admin?
           = link_to 'Destroy', category, method: :delete, class: "btn btn-warning", data: { confirm: 'Are you sure?' }
+      %td
+        = category_product_count(category)
 
 
 
