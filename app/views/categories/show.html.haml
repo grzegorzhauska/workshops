@@ -12,6 +12,8 @@
     %li.product
       %strong
         = link_to product.title, category_product_path(category, product)
+      = product.price
+
 
 - if current_user.present?
   %div{ :class => 'new-form'}
