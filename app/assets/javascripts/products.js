@@ -3,11 +3,16 @@
 
 $(document).ready(function() {
 
- $('#review_form').hide();
+  function review_form_toggle() {
+    $('#review_form').toggle();
+    $('.show_review_form').toggle();
+    $('.hide_review_form').toggle();
+  }
 
-  $('.show_review_form').click(function() {
-   $('#review_form').show();
-   $('.show_review_form').hide();
-  });
+  $('#review_form').hide();
+  $('.hide_review_form').hide();
+
+  $('.show_review_form').click(review_form_toggle);
+  $('.hide_review_form').click(review_form_toggle);
   
  });
