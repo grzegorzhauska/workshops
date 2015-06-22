@@ -17,6 +17,11 @@ $link-color:            $color4;
 @import "bootstrap";
 @import "font-awesome";
 
+.jumbotron {
+  background:transparent !important;
+  background-size: cover;
+}
+
 nav {
   a {
     color: gray;

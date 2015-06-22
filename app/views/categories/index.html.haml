@@ -1,4 +1,10 @@
-%h1.categories-header Listing categories
+- if !current_user.present?
+  %div{ :class => 'jumbotron'}
+    %h1 Best Products on the Net
+    %p
+      = link_to 'Sign up / Sign in', new_user_session_path, class: "btn btn-primary btn-lg"
+- else
+  %h1.categories-header Listing categories
 
 %div{ :class => 'actions'}
   - if current_user.present? && current_user.admin?
